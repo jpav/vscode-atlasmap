@@ -42,6 +42,18 @@
 	],
 	"main": "./out/extension",
 	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "atlasmap.editor",
+				"displayName": "AtlasMap Editor",
+				"selector": [
+					{
+						"filenamePattern": "*.adm,*.jar"
+					}
+				],
+				"priority": "default"
+			}
+		],
 		"commands": [
 			{
 				"command": "atlasmap.start",
@@ -81,7 +93,8 @@
 	},
 	"activationEvents": [
 		"onCommand:atlasmap.start",
-		"onCommand:atlasmap.stop"
+		"onCommand:atlasmap.stop",
+		"onCustomEditor:atlasmap.editor"
 	],
 	"scripts": {
 		"vscode:prepublish": "tsc -p ./",
